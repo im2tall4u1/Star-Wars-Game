@@ -1,0 +1,61 @@
+import random
+
+number = random.randint(1, 3)
+inventory = {'weapons': "Blaster",
+            'collectibles': " ",
+            'Galactic Credits': "500"}
+
+
+
+
+player_name = input("Hello, what is your name? ")
+print ("Hello", player_name + "." " You are a Bounty Hunter.")
+print ("You're on your way to Geonosis to find rare artifacts.")
+print ("You've arrived and are looking inside an abandoned droid factory.")
+print ("Check your inventory to see what you have. Type yes to display.")
+check_inventory = input ("Display Inventory? ")
+if check_inventory == "yes":
+    print (inventory)
+
+print ("You've encountered two doors, red and blue. Choose one to enter.")
+choose_door = input ("red or blue? ")
+
+
+
+if choose_door == "blue": #Encounter the Sith Lord and begin guessing game
+        print ("A Sith Lord! What will you do, fight or flee?")
+        decision_a = input("fight or flee: ")
+        if decision_a == "fight":
+            print ("To fight, choose a number between 1 & 3")
+            print ("Choose correctly and live!")
+            print ("Choose wrong and fall to the Sith.")
+            guess = int(input("Choose your fate, Jedi "))
+            if guess != number:
+                print ("Wrong number, you have died.")
+            if guess == number:
+                print ( "You have vanquished the Sith Lord!")
+                print ("Exit this room and continue through other door.")
+                choose_door = input ("red or blue? ")
+        if decision_a != "fight":
+            choose_door = input ("red or blue ")
+
+
+if choose_door == "red": #Encouter a chest with multiple items inside
+    print ("A chest is here. Open it up.")
+    chest_choice = input ("open or leave room? ")
+        if chest_choice == "open":
+            print ("Open this chest with a palindrome")
+        palindrome = input ("palindrome: ")
+        if palindrome == reversed(palindrome):
+            print("Congratulations the chest is open. Items collected.")
+        else:
+            print ("Type a palindrome to open")
+inventory.update(['weapons'] = "Darksaber", "Lightsaber")
+inventory.update(['collectibles'] = "Jedi Holocron", "Sith Holocron")
+inventory(['Galactic Credits'] = "250")
+print("Check your inventory to see new items.")
+check_inventory2 = input("To check inventory type 'display' ")
+if check_inventory2 == "display":
+    print (inventory)
+else:
+    print ("Your journey is now complete. Time to leave.")
